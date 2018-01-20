@@ -20,7 +20,7 @@ public class MoveZerosTest {
   }
 
   public static int[] moveZeros(int[] target) {
-    if (target.length == 0 || target == null) {
+    if (target == null || target.length ==0) {
       return null;
     }
     int insertPosition = 0;
