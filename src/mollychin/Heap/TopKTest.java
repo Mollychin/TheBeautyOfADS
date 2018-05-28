@@ -45,14 +45,17 @@ class TopK<E> {
   }
 
   public void add(E e) {
+    // 堆未满，直接加入
     if (p.size() < k) {
       p.add(e);
       return;
     }
     Comparable<? super E> heap = (Comparable<? super E>) p.peek();
+    //新来的小于根节点，不做什么东西
     if (heap.compareTo(e) > 0) {
       return;
     }
+    // 新来的大于根节点，把根节点抛弃，加入新来的数值
     p.poll();
     p.add(e);
   }
@@ -67,5 +70,4 @@ class TopK<E> {
   public E getKth() {
     return p.peek();
   }
-
 }
