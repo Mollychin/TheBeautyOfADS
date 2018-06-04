@@ -38,11 +38,13 @@ class Median<E> {
   }
 
   public void add(E e) {
+    // e为第一个数值时
     if (m == null) {
       m = e;
       return;
     }
     if (compare(e, m) <= 0) {
+      // 新来的数值小于等于原中值时则加在最大堆里
       maxHeap.add(e);
     } else {
       minHeap.add(e);
